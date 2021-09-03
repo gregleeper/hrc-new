@@ -42,13 +42,12 @@ export default function Header() {
                 </div>
                 <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
                   {navigation.map((item) => (
-                    <Link
+                    <a
                       key={item.name}
-                      href={item.href}
                       className="font-medium text-gray-500 hover:text-gray-900"
                     >
-                      {item.name}
-                    </Link>
+                      <Link href={item.href}>{item.name}</Link>
+                    </a>
                   ))}
                 </div>
               </nav>
@@ -83,10 +82,9 @@ export default function Header() {
                     {navigation.map((item) => (
                       <a
                         key={item.name}
-                        href={item.href}
                         className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
                       >
-                        {item.name}
+                        <Link href={item.href}>{item.name}</Link>
                       </a>
                     ))}
                   </div>
@@ -109,12 +107,9 @@ export default function Header() {
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
-                  <Link
-                    href="/schedules"
-                    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10"
-                  >
-                    Schedules
-                  </Link>
+                  <button className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10">
+                    <Link href="/schedules">Schedules</Link>
+                  </button>
                 </div>
               </div>
             </div>
