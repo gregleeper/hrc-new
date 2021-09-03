@@ -1,0 +1,31 @@
+type Event @model @auth(rules: [{allow: public}]) @key(name: "bySport", fields: ["sportID"]) {
+  id: ID!
+  dateAndTime: AWSDateTime
+  HomeTeam: Team @connection
+  AwayTeam: Team @connection
+  Sport: Sport @connection
+  sportID: ID
+  Division: Division @connection
+}
+
+type Team @model @auth(rules: [{allow: public}]) @key(name: "byDivision", fields: ["divisionID"]) {
+  id: ID!
+  name: String
+  Division: Division @connection
+  divisionID: ID
+}
+
+type Sport @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  Divisions: [Division] @connection(keyName: "bySport", fields: ["id"])
+  Events: [Event] @connection(keyName: "bySport", fields: ["id"])
+}
+
+type Division @model @auth(rules: [{allow: public}]) @key(name: "bySport", fields: ["sportID"]) {
+  id: ID!
+  name: String!
+  Teams: [Team] @connection(keyName: "byDivision", fields: ["id"])
+  sportID: ID
+}
+ 

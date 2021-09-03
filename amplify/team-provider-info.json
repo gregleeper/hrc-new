@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-hugotonrec-staging-204357-authRole",
+      "UnauthRoleArn": "arn:aws:iam::110023552828:role/amplify-hugotonrec-staging-204357-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::110023552828:role/amplify-hugotonrec-staging-204357-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-hugotonrec-staging-204357-deployment",
+      "UnauthRoleName": "amplify-hugotonrec-staging-204357-unauthRole",
+      "StackName": "amplify-hugotonrec-staging-204357",
+      "StackId": "arn:aws:cloudformation:us-east-1:110023552828:stack/amplify-hugotonrec-staging-204357/2b852b00-05e5-11ec-ab36-1206176d6be9",
+      "AmplifyAppId": "d2pxh7u0f3nvju"
+    },
+    "categories": {
+      "auth": {
+        "HugotonRec": {}
+      }
+    }
+  }
+}
