@@ -16,7 +16,7 @@ export default function AllSchedules(data) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="md:flex lg:justify-between md:justify-evenly my-8 ">
           <PageHeading pageName="All Schedules" />
-          <div className="md:flex md:justify-around md:w-3/4 w-3/5 py-4 md:py-0">
+          <div className="flex  flex-col md:flex-row justify-around md:w-3/4 w-full py-4 md:py-0  ">
             <Dropdown
               options={data.data.sports.data.listSports.items}
               label="Sport"
