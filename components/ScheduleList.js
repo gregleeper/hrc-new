@@ -2,7 +2,7 @@ import ScheduleItem from "./ScheduleItem";
 
 export default function ScheduleList({ events }) {
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 place-content-evenly z-0">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 place-content-evenly z-0 mt-2 mb-10">
       {events.map((event) => (
         <div
           key={event.id}

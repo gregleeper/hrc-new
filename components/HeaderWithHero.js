@@ -1,7 +1,7 @@
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Fragment } from "react";
-
+import Link from "next/link";
 const navigation = [{ name: "Schedules", href: "/schedules" }];
 
 export default function Header() {
@@ -109,12 +109,12 @@ export default function Header() {
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
-                  <a
-                    href="#"
+                  <Link
+                    href="/schedules"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700 md:py-4 md:text-lg md:px-10"
                   >
                     Schedules
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
