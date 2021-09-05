@@ -4,6 +4,10 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
+type LocationMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 type EventMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
@@ -20,6 +24,15 @@ type SportMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
+export declare class Location {
+  readonly id: string;
+  readonly name?: string;
+  readonly createdAt?: string;
+  readonly updatedAt?: string;
+  constructor(init: ModelInit<Location, LocationMetaData>);
+  static copyOf(source: Location, mutator: (draft: MutableModel<Location, LocationMetaData>) => MutableModel<Location, LocationMetaData> | void): Location;
+}
+
 export declare class Event {
   readonly id: string;
   readonly dateAndTime?: string;
@@ -28,6 +41,7 @@ export declare class Event {
   readonly Sport?: Sport;
   readonly sportID?: string;
   readonly Division?: Division;
+  readonly Location?: Location;
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Event, EventMetaData>);

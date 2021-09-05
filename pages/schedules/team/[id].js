@@ -51,5 +51,6 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { filteredEvents, teamName },
+    revalidate: 1,
   };
 }

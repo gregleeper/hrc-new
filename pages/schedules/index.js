@@ -44,6 +44,7 @@ export async function getStaticProps(context) {
   const divisions = await API.graphql({ query: queries.listDivisions });
   const teams = await API.graphql({ query: queries.listTeams });
   return {
-    props: { data: { events, sports, divisions, teams } }, // will be passed to the page component as props
+    props: { data: { events, sports, divisions, teams } },
+    revalidate: 1,
   };
 }

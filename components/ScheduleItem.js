@@ -42,6 +42,11 @@ export default function ScheduleItem({ event }) {
         </div>
         <div className="flex justify-center ">
           <p className="text-xs font-medium text-gray-900">
+            {event.Location.name}
+          </p>
+        </div>
+        <div className="flex justify-center ">
+          <p className="text-xs font-medium text-gray-900">
             {event.Division.name}
           </p>
         </div>

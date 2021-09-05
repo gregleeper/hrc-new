@@ -55,6 +55,7 @@ export async function getStaticProps(context) {
   const res = await API.graphql({ query: queries.listEvents });
 
   return {
-    props: { data: res }, // will be passed to the page component as props
+    props: { data: res },
+    revalidate: 1,
   };
 }
