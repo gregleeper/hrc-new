@@ -13,7 +13,7 @@ export default function Home({ data }) {
   const sorted = data.data.listEvents.items.sort(
     (a, b) => new Date(a.dateAndTime) - new Date(b.dateAndTime)
   );
-  console.log(sorted);
+
   const sortedAndFiltered = sorted.filter(
     (e) => moment(e.dateAndTime) >= moment(today)
   );
