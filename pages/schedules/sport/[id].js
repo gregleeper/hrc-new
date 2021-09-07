@@ -6,6 +6,9 @@ import ScheduleList from "../../../components/ScheduleList";
 import EmptyContent from "../../../components/EmptyContent";
 
 export default function EventsBySport({ filteredEvents, sportName }) {
+  const sorted = filteredEvents.sort(
+    (a, b) => new Date(a.dateAndTime) - new Date(b.dateAndTime)
+  );
   return (
     <div className="w-full">
       <Header />
@@ -14,7 +17,7 @@ export default function EventsBySport({ filteredEvents, sportName }) {
           <PageHeading pageName={`Events for ${sportName}`} />
         </div>
         {filteredEvents.length > 0 ? (
-          <ScheduleList events={filteredEvents} />
+          <ScheduleList events={sorted} />
         ) : (
           <EmptyContent />
         )}

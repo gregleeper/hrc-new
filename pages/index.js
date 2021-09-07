@@ -18,7 +18,7 @@ export default function Home({ data }) {
     (e) => moment(e.dateAndTime) >= moment(today)
   );
 
-  const firstSix = sortedAndFiltered.slice(0, 6);
+  const firstSix = sortedAndFiltered.slice(0, 8);
 
   return (
     <div className="relative bg-white overflow-hidden">
@@ -37,11 +37,10 @@ export default function Home({ data }) {
       <div>
         <div className="relative bg-white overflow-hidden">
           <div className="pb-5 border-b border-gray-200 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h3 className="text-lg leading-6 font-medium text-gray-900 py-4">
+            <h3 className=" leading-6 font-bold text-gray-900 py-3 text-xl">
               Upcoming Events
             </h3>
           </div>
-
           <div className="mt-10 mx-auto max-w-7xl px-4 sm:mt-4 sm:px-6 md:mt-8 lg:mt-12 lg:px-8 xl:mt-12">
             <ScheduleList events={firstSix} />
           </div>

@@ -6,6 +6,9 @@ import ScheduleList from "../../../components/ScheduleList";
 import EmptyContent from "../../../components/EmptyContent";
 
 export default function EventsByTeam({ filteredEvents, teamName }) {
+  const sorted = filteredEvents.sort(
+    (a, b) => new Date(a.dateAndTime) - new Date(b.dateAndTime)
+  );
   return (
     <div className="w-full">
       <Header />
@@ -13,8 +16,8 @@ export default function EventsByTeam({ filteredEvents, teamName }) {
         <div className="md:flex lg:justify-between md:justify-evenly my-8 ">
           <PageHeading pageName={`Events for the ${teamName}`} />
         </div>
-        {filteredEvents.length > 0 ? (
-          <ScheduleList events={filteredEvents} />
+        {sorted.length > 0 ? (
+          <ScheduleList events={sorted} />
         ) : (
           <EmptyContent />
         )}
