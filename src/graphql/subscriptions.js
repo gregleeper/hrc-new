@@ -79,6 +79,10 @@ export const onCreateEvent = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        roster {
+          nextToken
+          startedAt
+        }
       }
       AwayTeam {
         id
@@ -98,6 +102,10 @@ export const onCreateEvent = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
+        }
+        roster {
+          nextToken
+          startedAt
         }
       }
       Sport {
@@ -173,6 +181,10 @@ export const onUpdateEvent = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        roster {
+          nextToken
+          startedAt
+        }
       }
       AwayTeam {
         id
@@ -192,6 +204,10 @@ export const onUpdateEvent = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
+        }
+        roster {
+          nextToken
+          startedAt
         }
       }
       Sport {
@@ -267,6 +283,10 @@ export const onDeleteEvent = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        roster {
+          nextToken
+          startedAt
+        }
       }
       AwayTeam {
         id
@@ -286,6 +306,10 @@ export const onDeleteEvent = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
+        }
+        roster {
+          nextToken
+          startedAt
         }
       }
       Sport {
@@ -347,6 +371,21 @@ export const onCreateTeam = /* GraphQL */ `
           startedAt
         }
       }
+      roster {
+        items {
+          id
+          teamID
+          name
+          number
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -375,6 +414,21 @@ export const onUpdateTeam = /* GraphQL */ `
           startedAt
         }
       }
+      roster {
+        items {
+          id
+          teamID
+          name
+          number
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -402,6 +456,21 @@ export const onDeleteTeam = /* GraphQL */ `
           nextToken
           startedAt
         }
+      }
+      roster {
+        items {
+          id
+          teamID
+          name
+          number
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
       }
     }
   }
@@ -610,6 +679,51 @@ export const onDeleteDivision = /* GraphQL */ `
         nextToken
         startedAt
       }
+    }
+  }
+`;
+export const onCreatePlayer = /* GraphQL */ `
+  subscription OnCreatePlayer {
+    onCreatePlayer {
+      id
+      teamID
+      name
+      number
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdatePlayer = /* GraphQL */ `
+  subscription OnUpdatePlayer {
+    onUpdatePlayer {
+      id
+      teamID
+      name
+      number
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeletePlayer = /* GraphQL */ `
+  subscription OnDeletePlayer {
+    onDeletePlayer {
+      id
+      teamID
+      name
+      number
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
     }
   }
 `;

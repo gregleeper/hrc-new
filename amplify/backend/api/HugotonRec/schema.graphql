@@ -1,9 +1,12 @@
-type Location @model @auth(rules: [{allow: public}]) {
+type Location @model @auth(rules: [{ allow: public }]) {
   id: ID!
   name: String
 }
 
-type Event @model @auth(rules: [{allow: public}]) @key(name: "bySport", fields: ["sportID"]) {
+type Event
+  @model
+  @auth(rules: [{ allow: public }])
+  @key(name: "bySport", fields: ["sportID"]) {
   id: ID!
   dateAndTime: AWSDateTime
   HomeTeam: Team @connection
@@ -14,24 +17,40 @@ type Event @model @auth(rules: [{allow: public}]) @key(name: "bySport", fields: 
   Location: Location @connection
 }
 
-type Team @model @auth(rules: [{allow: public}]) @key(name: "byDivision", fields: ["divisionID"]) {
+type Team
+  @model
+  @auth(rules: [{ allow: public }])
+  @key(name: "byDivision", fields: ["divisionID"]) {
   id: ID!
   name: String
   Division: Division @connection
   divisionID: ID
+  roster: [Player] @connection(keyName: "byTeam", fields: ["id"])
 }
 
-type Sport @model @auth(rules: [{allow: public}]) {
+type Sport @model @auth(rules: [{ allow: public }]) {
   id: ID!
   name: String!
   Divisions: [Division] @connection(keyName: "bySport", fields: ["id"])
   Events: [Event] @connection(keyName: "bySport", fields: ["id"])
 }
 
-type Division @model @auth(rules: [{allow: public}]) @key(name: "bySport", fields: ["sportID"]) {
+type Division
+  @model
+  @auth(rules: [{ allow: public }])
+  @key(name: "bySport", fields: ["sportID"]) {
   id: ID!
   name: String!
   Teams: [Team] @connection(keyName: "byDivision", fields: ["id"])
   sportID: ID
 }
- 
+
+type Player
+  @model
+  @auth(rules: [{ allow: public }])
+  @key(name: "byTeam", fields: ["teamID", "number"]) {
+  id: ID!
+  teamID: ID!
+  name: String!
+  number: Int!
+}

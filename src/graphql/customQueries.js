@@ -47,3 +47,115 @@ export const getSport = /* GraphQL */ `
     }
   }
 `;
+export const getEvent = /* GraphQL */ `
+  query GetEvent($id: ID!) {
+    getEvent(id: $id) {
+      id
+      dateAndTime
+      sportID
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+      Location {
+        id
+        name
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      HomeTeam {
+        id
+        name
+        divisionID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        Division {
+          id
+          name
+          sportID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        roster {
+          items {
+            id
+            name
+            number
+          }
+          nextToken
+          startedAt
+        }
+      }
+      AwayTeam {
+        id
+        name
+        divisionID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        Division {
+          id
+          name
+          sportID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        roster {
+          items {
+            id
+            name
+            number
+          }
+          nextToken
+          startedAt
+        }
+      }
+      Sport {
+        id
+        name
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        Events {
+          nextToken
+          startedAt
+        }
+        Divisions {
+          nextToken
+          startedAt
+        }
+      }
+      Division {
+        id
+        name
+        sportID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        Teams {
+          nextToken
+          startedAt
+        }
+      }
+    }
+  }
+`;

@@ -20,6 +20,10 @@ type DivisionMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
+type PlayerMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 type SportMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
@@ -53,6 +57,7 @@ export declare class Team {
   readonly name?: string;
   readonly Division?: Division;
   readonly divisionID?: string;
+  readonly roster?: (Player | null)[];
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Team, TeamMetaData>);
@@ -68,6 +73,17 @@ export declare class Division {
   readonly updatedAt?: string;
   constructor(init: ModelInit<Division, DivisionMetaData>);
   static copyOf(source: Division, mutator: (draft: MutableModel<Division, DivisionMetaData>) => MutableModel<Division, DivisionMetaData> | void): Division;
+}
+
+export declare class Player {
+  readonly id: string;
+  readonly teamID: string;
+  readonly name: string;
+  readonly number: number;
+  readonly createdAt?: string;
+  readonly updatedAt?: string;
+  constructor(init: ModelInit<Player, PlayerMetaData>);
+  static copyOf(source: Player, mutator: (draft: MutableModel<Player, PlayerMetaData>) => MutableModel<Player, PlayerMetaData> | void): Player;
 }
 
 export declare class Sport {

@@ -101,6 +101,10 @@ export const getEvent = /* GraphQL */ `
           createdAt
           updatedAt
         }
+        roster {
+          nextToken
+          startedAt
+        }
       }
       AwayTeam {
         id
@@ -120,6 +124,10 @@ export const getEvent = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
+        }
+        roster {
+          nextToken
+          startedAt
         }
       }
       Sport {
@@ -327,6 +335,21 @@ export const getTeam = /* GraphQL */ `
           startedAt
         }
       }
+      roster {
+        items {
+          id
+          teamID
+          name
+          number
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        nextToken
+        startedAt
+      }
     }
   }
 `;
@@ -355,6 +378,10 @@ export const listTeams = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
+        }
+        roster {
+          nextToken
+          startedAt
         }
       }
       nextToken
@@ -393,6 +420,10 @@ export const syncTeams = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
+        }
+        roster {
+          nextToken
+          startedAt
         }
       }
       nextToken
@@ -585,6 +616,73 @@ export const syncDivisions = /* GraphQL */ `
           nextToken
           startedAt
         }
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getPlayer = /* GraphQL */ `
+  query GetPlayer($id: ID!) {
+    getPlayer(id: $id) {
+      id
+      teamID
+      name
+      number
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listPlayers = /* GraphQL */ `
+  query ListPlayers(
+    $filter: ModelPlayerFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listPlayers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        teamID
+        name
+        number
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncPlayers = /* GraphQL */ `
+  query SyncPlayers(
+    $filter: ModelPlayerFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncPlayers(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        teamID
+        name
+        number
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
       }
       nextToken
       startedAt
