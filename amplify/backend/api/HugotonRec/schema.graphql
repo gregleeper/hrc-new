@@ -54,3 +54,4 @@ type Player
   name: String!
   number: Int!
 }
+ 

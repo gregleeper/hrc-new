@@ -3,7 +3,9 @@ export const getSport = /* GraphQL */ `
     getSport(id: $id) {
       id
       name
-
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Events {
@@ -19,22 +21,28 @@ export const getSport = /* GraphQL */ `
             id
             name
           }
-
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
+        startedAt
       }
       Divisions {
         items {
           id
           name
           sportID
-
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
+        startedAt
       }
     }
   }
@@ -45,13 +53,17 @@ export const getEvent = /* GraphQL */ `
       id
       dateAndTime
       sportID
-
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Location {
         id
         name
-
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
@@ -59,72 +71,79 @@ export const getEvent = /* GraphQL */ `
         id
         name
         divisionID
-
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Division {
           id
           name
           sportID
-
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
         roster {
-          items {
-            id
-            name
-            number
-          }
           nextToken
+          startedAt
         }
       }
       AwayTeam {
         id
         name
         divisionID
-
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Division {
           id
           name
           sportID
-
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
         roster {
-          items {
-            id
-            name
-            number
-          }
           nextToken
+          startedAt
         }
       }
       Sport {
         id
         name
-
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Events {
           nextToken
+          startedAt
         }
         Divisions {
           nextToken
+          startedAt
         }
       }
       Division {
         id
         name
         sportID
-
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Teams {
           nextToken
+          startedAt
         }
       }
     }

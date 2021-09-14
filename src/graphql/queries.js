@@ -6,6 +6,9 @@ export const getLocation = /* GraphQL */ `
     getLocation(id: $id) {
       id
       name
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -21,10 +24,41 @@ export const listLocations = /* GraphQL */ `
       items {
         id
         name
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
+    }
+  }
+`;
+export const syncLocations = /* GraphQL */ `
+  query SyncLocations(
+    $filter: ModelLocationFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncLocations(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        name
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
     }
   }
 `;
@@ -34,11 +68,17 @@ export const getEvent = /* GraphQL */ `
       id
       dateAndTime
       sportID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Location {
         id
         name
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
@@ -46,56 +86,139 @@ export const getEvent = /* GraphQL */ `
         id
         name
         divisionID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Division {
           id
           name
           sportID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Teams {
+            nextToken
+            startedAt
+          }
         }
         roster {
+          items {
+            id
+            teamID
+            name
+            number
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
       AwayTeam {
         id
         name
         divisionID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Division {
           id
           name
           sportID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Teams {
+            nextToken
+            startedAt
+          }
         }
         roster {
+          items {
+            id
+            teamID
+            name
+            number
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
       Sport {
         id
         name
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Events {
+          items {
+            id
+            dateAndTime
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
         Divisions {
+          items {
+            id
+            name
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
       Division {
         id
         name
         sportID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Teams {
+          items {
+            id
+            name
+            divisionID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
     }
@@ -112,11 +235,17 @@ export const listEvents = /* GraphQL */ `
         id
         dateAndTime
         sportID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Location {
           id
           name
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
@@ -124,31 +253,200 @@ export const listEvents = /* GraphQL */ `
           id
           name
           divisionID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Division {
+            id
+            name
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          roster {
+            nextToken
+            startedAt
+          }
         }
         AwayTeam {
           id
           name
           divisionID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Division {
+            id
+            name
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          roster {
+            nextToken
+            startedAt
+          }
         }
         Sport {
           id
           name
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Events {
+            nextToken
+            startedAt
+          }
+          Divisions {
+            nextToken
+            startedAt
+          }
         }
         Division {
           id
           name
           sportID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Teams {
+            nextToken
+            startedAt
+          }
         }
       }
       nextToken
+      startedAt
+    }
+  }
+`;
+export const syncEvents = /* GraphQL */ `
+  query SyncEvents(
+    $filter: ModelEventFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncEvents(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        dateAndTime
+        sportID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        Location {
+          id
+          name
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+        }
+        HomeTeam {
+          id
+          name
+          divisionID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+          Division {
+            id
+            name
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          roster {
+            nextToken
+            startedAt
+          }
+        }
+        AwayTeam {
+          id
+          name
+          divisionID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+          Division {
+            id
+            name
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          roster {
+            nextToken
+            startedAt
+          }
+        }
+        Sport {
+          id
+          name
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+          Events {
+            nextToken
+            startedAt
+          }
+          Divisions {
+            nextToken
+            startedAt
+          }
+        }
+        Division {
+          id
+          name
+          sportID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+          Teams {
+            nextToken
+            startedAt
+          }
+        }
+      }
+      nextToken
+      startedAt
     }
   }
 `;
@@ -158,16 +456,33 @@ export const getTeam = /* GraphQL */ `
       id
       name
       divisionID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Division {
         id
         name
         sportID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Teams {
+          items {
+            id
+            name
+            divisionID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
       roster {
@@ -176,10 +491,14 @@ export const getTeam = /* GraphQL */ `
           teamID
           name
           number
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
+        startedAt
       }
     }
   }
@@ -195,20 +514,100 @@ export const listTeams = /* GraphQL */ `
         id
         name
         divisionID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Division {
           id
           name
           sportID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Teams {
+            nextToken
+            startedAt
+          }
         }
         roster {
+          items {
+            id
+            teamID
+            name
+            number
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
       nextToken
+      startedAt
+    }
+  }
+`;
+export const syncTeams = /* GraphQL */ `
+  query SyncTeams(
+    $filter: ModelTeamFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncTeams(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        name
+        divisionID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        Division {
+          id
+          name
+          sportID
+          _version
+          _deleted
+          _lastChangedAt
+          createdAt
+          updatedAt
+          Teams {
+            nextToken
+            startedAt
+          }
+        }
+        roster {
+          items {
+            id
+            teamID
+            name
+            number
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+      }
+      nextToken
+      startedAt
     }
   }
 `;
@@ -217,6 +616,9 @@ export const getSport = /* GraphQL */ `
     getSport(id: $id) {
       id
       name
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Events {
@@ -224,20 +626,80 @@ export const getSport = /* GraphQL */ `
           id
           dateAndTime
           sportID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Location {
+            id
+            name
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          HomeTeam {
+            id
+            name
+            divisionID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          AwayTeam {
+            id
+            name
+            divisionID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          Sport {
+            id
+            name
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          Division {
+            id
+            name
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
         }
         nextToken
+        startedAt
       }
       Divisions {
         items {
           id
           name
           sportID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Teams {
+            nextToken
+            startedAt
+          }
         }
         nextToken
+        startedAt
       }
     }
   }
@@ -252,16 +714,97 @@ export const listSports = /* GraphQL */ `
       items {
         id
         name
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Events {
+          items {
+            id
+            dateAndTime
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
         Divisions {
+          items {
+            id
+            name
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
       nextToken
+      startedAt
+    }
+  }
+`;
+export const syncSports = /* GraphQL */ `
+  query SyncSports(
+    $filter: ModelSportFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncSports(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        name
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        Events {
+          items {
+            id
+            dateAndTime
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+        Divisions {
+          items {
+            id
+            name
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+      }
+      nextToken
+      startedAt
     }
   }
 `;
@@ -271,6 +814,9 @@ export const getDivision = /* GraphQL */ `
       id
       name
       sportID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Teams {
@@ -278,10 +824,28 @@ export const getDivision = /* GraphQL */ `
           id
           name
           divisionID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Division {
+            id
+            name
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          roster {
+            nextToken
+            startedAt
+          }
         }
         nextToken
+        startedAt
       }
     }
   }
@@ -297,13 +861,70 @@ export const listDivisions = /* GraphQL */ `
         id
         name
         sportID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Teams {
+          items {
+            id
+            name
+            divisionID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
       nextToken
+      startedAt
+    }
+  }
+`;
+export const syncDivisions = /* GraphQL */ `
+  query SyncDivisions(
+    $filter: ModelDivisionFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncDivisions(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        name
+        sportID
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+        Teams {
+          items {
+            id
+            name
+            divisionID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          nextToken
+          startedAt
+        }
+      }
+      nextToken
+      startedAt
     }
   }
 `;
@@ -314,6 +935,9 @@ export const getPlayer = /* GraphQL */ `
       teamID
       name
       number
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -331,10 +955,43 @@ export const listPlayers = /* GraphQL */ `
         teamID
         name
         number
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
       nextToken
+      startedAt
+    }
+  }
+`;
+export const syncPlayers = /* GraphQL */ `
+  query SyncPlayers(
+    $filter: ModelPlayerFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncPlayers(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        teamID
+        name
+        number
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
     }
   }
 `;

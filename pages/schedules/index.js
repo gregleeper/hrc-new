@@ -10,6 +10,9 @@ export default function AllSchedules(data) {
     (a, b) => new Date(a.dateAndTime) - new Date(b.dateAndTime)
   );
 
+  const filtered = sorted.filter((e) => !e._deleted);
+  console.log(filtered);
+
   return (
     <div className="w-full">
       <Header />
@@ -32,7 +35,7 @@ export default function AllSchedules(data) {
           </div>
         </div>
         <div className="z-0"></div>
-        <ScheduleList events={sorted} />
+        <ScheduleList events={filtered} />
       </div>
     </div>
   );
@@ -43,7 +46,6 @@ export async function getStaticProps(context) {
   const sports = await API.graphql({ query: queries.listSports });
   const divisions = await API.graphql({ query: queries.listDivisions });
   const teams = await API.graphql({ query: queries.listTeams });
-  console.log(events, sports);
   return {
     props: { data: { events, sports, divisions, teams } },
     revalidate: 60 * 60,

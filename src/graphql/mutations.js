@@ -9,6 +9,9 @@ export const createLocation = /* GraphQL */ `
     createLocation(input: $input, condition: $condition) {
       id
       name
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -22,6 +25,9 @@ export const updateLocation = /* GraphQL */ `
     updateLocation(input: $input, condition: $condition) {
       id
       name
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -35,6 +41,9 @@ export const deleteLocation = /* GraphQL */ `
     deleteLocation(input: $input, condition: $condition) {
       id
       name
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -49,11 +58,17 @@ export const createEvent = /* GraphQL */ `
       id
       dateAndTime
       sportID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Location {
         id
         name
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
@@ -61,56 +76,139 @@ export const createEvent = /* GraphQL */ `
         id
         name
         divisionID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Division {
           id
           name
           sportID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Teams {
+            nextToken
+            startedAt
+          }
         }
         roster {
+          items {
+            id
+            teamID
+            name
+            number
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
       AwayTeam {
         id
         name
         divisionID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Division {
           id
           name
           sportID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Teams {
+            nextToken
+            startedAt
+          }
         }
         roster {
+          items {
+            id
+            teamID
+            name
+            number
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
       Sport {
         id
         name
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Events {
+          items {
+            id
+            dateAndTime
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
         Divisions {
+          items {
+            id
+            name
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
       Division {
         id
         name
         sportID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Teams {
+          items {
+            id
+            name
+            divisionID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
     }
@@ -125,11 +223,17 @@ export const updateEvent = /* GraphQL */ `
       id
       dateAndTime
       sportID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Location {
         id
         name
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
@@ -137,56 +241,139 @@ export const updateEvent = /* GraphQL */ `
         id
         name
         divisionID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Division {
           id
           name
           sportID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Teams {
+            nextToken
+            startedAt
+          }
         }
         roster {
+          items {
+            id
+            teamID
+            name
+            number
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
       AwayTeam {
         id
         name
         divisionID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Division {
           id
           name
           sportID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Teams {
+            nextToken
+            startedAt
+          }
         }
         roster {
+          items {
+            id
+            teamID
+            name
+            number
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
       Sport {
         id
         name
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Events {
+          items {
+            id
+            dateAndTime
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
         Divisions {
+          items {
+            id
+            name
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
       Division {
         id
         name
         sportID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Teams {
+          items {
+            id
+            name
+            divisionID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
     }
@@ -201,11 +388,17 @@ export const deleteEvent = /* GraphQL */ `
       id
       dateAndTime
       sportID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Location {
         id
         name
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
       }
@@ -213,56 +406,139 @@ export const deleteEvent = /* GraphQL */ `
         id
         name
         divisionID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Division {
           id
           name
           sportID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Teams {
+            nextToken
+            startedAt
+          }
         }
         roster {
+          items {
+            id
+            teamID
+            name
+            number
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
       AwayTeam {
         id
         name
         divisionID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Division {
           id
           name
           sportID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Teams {
+            nextToken
+            startedAt
+          }
         }
         roster {
+          items {
+            id
+            teamID
+            name
+            number
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
       Sport {
         id
         name
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Events {
+          items {
+            id
+            dateAndTime
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
         Divisions {
+          items {
+            id
+            name
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
       Division {
         id
         name
         sportID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Teams {
+          items {
+            id
+            name
+            divisionID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
     }
@@ -277,16 +553,33 @@ export const createTeam = /* GraphQL */ `
       id
       name
       divisionID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Division {
         id
         name
         sportID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Teams {
+          items {
+            id
+            name
+            divisionID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
       roster {
@@ -295,10 +588,14 @@ export const createTeam = /* GraphQL */ `
           teamID
           name
           number
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
+        startedAt
       }
     }
   }
@@ -312,16 +609,33 @@ export const updateTeam = /* GraphQL */ `
       id
       name
       divisionID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Division {
         id
         name
         sportID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Teams {
+          items {
+            id
+            name
+            divisionID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
       roster {
@@ -330,10 +644,14 @@ export const updateTeam = /* GraphQL */ `
           teamID
           name
           number
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
+        startedAt
       }
     }
   }
@@ -347,16 +665,33 @@ export const deleteTeam = /* GraphQL */ `
       id
       name
       divisionID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Division {
         id
         name
         sportID
+        _version
+        _deleted
+        _lastChangedAt
         createdAt
         updatedAt
         Teams {
+          items {
+            id
+            name
+            divisionID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
           nextToken
+          startedAt
         }
       }
       roster {
@@ -365,10 +700,14 @@ export const deleteTeam = /* GraphQL */ `
           teamID
           name
           number
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
         }
         nextToken
+        startedAt
       }
     }
   }
@@ -381,6 +720,9 @@ export const createSport = /* GraphQL */ `
     createSport(input: $input, condition: $condition) {
       id
       name
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Events {
@@ -388,20 +730,80 @@ export const createSport = /* GraphQL */ `
           id
           dateAndTime
           sportID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Location {
+            id
+            name
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          HomeTeam {
+            id
+            name
+            divisionID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          AwayTeam {
+            id
+            name
+            divisionID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          Sport {
+            id
+            name
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          Division {
+            id
+            name
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
         }
         nextToken
+        startedAt
       }
       Divisions {
         items {
           id
           name
           sportID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Teams {
+            nextToken
+            startedAt
+          }
         }
         nextToken
+        startedAt
       }
     }
   }
@@ -414,6 +816,9 @@ export const updateSport = /* GraphQL */ `
     updateSport(input: $input, condition: $condition) {
       id
       name
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Events {
@@ -421,20 +826,80 @@ export const updateSport = /* GraphQL */ `
           id
           dateAndTime
           sportID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Location {
+            id
+            name
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          HomeTeam {
+            id
+            name
+            divisionID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          AwayTeam {
+            id
+            name
+            divisionID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          Sport {
+            id
+            name
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          Division {
+            id
+            name
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
         }
         nextToken
+        startedAt
       }
       Divisions {
         items {
           id
           name
           sportID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Teams {
+            nextToken
+            startedAt
+          }
         }
         nextToken
+        startedAt
       }
     }
   }
@@ -447,6 +912,9 @@ export const deleteSport = /* GraphQL */ `
     deleteSport(input: $input, condition: $condition) {
       id
       name
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Events {
@@ -454,20 +922,80 @@ export const deleteSport = /* GraphQL */ `
           id
           dateAndTime
           sportID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Location {
+            id
+            name
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          HomeTeam {
+            id
+            name
+            divisionID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          AwayTeam {
+            id
+            name
+            divisionID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          Sport {
+            id
+            name
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          Division {
+            id
+            name
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
         }
         nextToken
+        startedAt
       }
       Divisions {
         items {
           id
           name
           sportID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Teams {
+            nextToken
+            startedAt
+          }
         }
         nextToken
+        startedAt
       }
     }
   }
@@ -481,6 +1009,9 @@ export const createDivision = /* GraphQL */ `
       id
       name
       sportID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Teams {
@@ -488,10 +1019,28 @@ export const createDivision = /* GraphQL */ `
           id
           name
           divisionID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Division {
+            id
+            name
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          roster {
+            nextToken
+            startedAt
+          }
         }
         nextToken
+        startedAt
       }
     }
   }
@@ -505,6 +1054,9 @@ export const updateDivision = /* GraphQL */ `
       id
       name
       sportID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Teams {
@@ -512,10 +1064,28 @@ export const updateDivision = /* GraphQL */ `
           id
           name
           divisionID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Division {
+            id
+            name
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          roster {
+            nextToken
+            startedAt
+          }
         }
         nextToken
+        startedAt
       }
     }
   }
@@ -529,6 +1099,9 @@ export const deleteDivision = /* GraphQL */ `
       id
       name
       sportID
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
       Teams {
@@ -536,10 +1109,28 @@ export const deleteDivision = /* GraphQL */ `
           id
           name
           divisionID
+          _version
+          _deleted
+          _lastChangedAt
           createdAt
           updatedAt
+          Division {
+            id
+            name
+            sportID
+            _version
+            _deleted
+            _lastChangedAt
+            createdAt
+            updatedAt
+          }
+          roster {
+            nextToken
+            startedAt
+          }
         }
         nextToken
+        startedAt
       }
     }
   }
@@ -554,6 +1145,9 @@ export const createPlayer = /* GraphQL */ `
       teamID
       name
       number
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -569,6 +1163,9 @@ export const updatePlayer = /* GraphQL */ `
       teamID
       name
       number
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
@@ -584,6 +1181,9 @@ export const deletePlayer = /* GraphQL */ `
       teamID
       name
       number
+      _version
+      _deleted
+      _lastChangedAt
       createdAt
       updatedAt
     }
