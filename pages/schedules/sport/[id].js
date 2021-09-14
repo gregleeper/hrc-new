@@ -53,6 +53,6 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { filteredEvents, sportName },
-    revalidate: 1,
+    revalidate: 60 * 60,
   };
 }

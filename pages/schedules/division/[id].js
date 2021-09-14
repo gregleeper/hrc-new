@@ -54,6 +54,6 @@ export async function getStaticProps({ params }) {
   return {
     props: { filteredEvents, divisionName },
 
-    revalidate: 1,
+    revalidate: 60 * 60,
   };
 }

@@ -51,9 +51,10 @@ export async function getStaticProps({ params }) {
     (event) =>
       event.AwayTeam.id === params.id || event.HomeTeam.id === params.id
   );
+  console.log(events);
 
   return {
     props: { filteredEvents, teamName },
-    revalidate: 1,
+    revalidate: 60 * 60,
   };
 }

@@ -43,8 +43,9 @@ export async function getStaticProps(context) {
   const sports = await API.graphql({ query: queries.listSports });
   const divisions = await API.graphql({ query: queries.listDivisions });
   const teams = await API.graphql({ query: queries.listTeams });
+  console.log(events, sports);
   return {
     props: { data: { events, sports, divisions, teams } },
-    revalidate: 1,
+    revalidate: 60 * 60,
   };
 }
