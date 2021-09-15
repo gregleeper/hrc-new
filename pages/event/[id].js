@@ -49,65 +49,69 @@ export default function Event() {
   function DataDisplay() {
     if (event && event.Sport) {
       return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-          <div className="max-w-lg ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-sans ">
+          <div className="max-w-lg">
             <div>
-              <PageHeading pageName={`Event - ${event.Sport.name}`} />
+              <PageHeading pageName={`${event.Sport.name}`} />
             </div>
-            <div className="text-center text-sm">
-              <div className="flex justify-evenly items-center pt-8 pb-2">
+            <div className="text-center text-sm  border border-gray-400 inset-0 rounded-lg mt-8 py-4">
+              <div className="flex justify-evenly items-center mx-4">
                 <div>
-                  <h5 className="text-2xl">{event.AwayTeam.name}</h5>
+                  <h5 className="text-2xl font-bold">{event.AwayTeam.name}</h5>
                 </div>
                 <div>
-                  <p>vs</p>
+                  <p className="font-light">vs</p>
                 </div>
                 <div>
-                  <h5 className="text-2xl">{event.HomeTeam.name}</h5>
+                  <h5 className="text-2xl font-bold">{event.HomeTeam.name}</h5>
                 </div>
               </div>
               <div>
-                <p>{event.Location.name}</p>
+                <p className="font-light">{event.Location.name}</p>
               </div>
               <div>
-                {moment(event.dateAndTime)
-                  .add(5, "hours")
-                  .format("dddd, MMMM Do YYYY h:mm a")}
+                <p className="font-light">
+                  {moment(event.dateAndTime)
+                    .add(5, "hours")
+                    .format("dddd, MMMM Do YYYY h:mm a")}
+                </p>
               </div>
             </div>
             {event.HomeTeam.roster.items.length &&
-              event.AwayTeam.roster.items.length && (
-                <div className="w-full py-10">
-                  <div className="w-3/6 mx-auto">
-                    <div>
-                      <p className="text-center text-lg font-semibold">
-                        {event.AwayTeam.name}
-                      </p>
-                      <ul>
-                        {event.AwayTeam.roster.items.map((player) => (
-                          <li className="flex justify-between" key={player}>
-                            <p>{player.name}</p> <p>{player.number}</p>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="w-3/6 mx-auto">
-                    <div>
-                      <p className="text-center text-lg font-semibold">
-                        {event.HomeTeam.name}
-                      </p>
-                      <ul>
-                        {event.HomeTeam.roster.items.map((player) => (
-                          <li className="flex justify-between" key={player}>
-                            <p>{player.name}</p> <p>{player.number}</p>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+            event.AwayTeam.roster.items.length ? (
+              <div className="w-full py-10">
+                <div className="w-3/6 mx-auto leading-relaxed">
+                  <div>
+                    <p className="text-center text-lg font-semibold">
+                      {event.AwayTeam.name}
+                    </p>
+                    <ul>
+                      {event.AwayTeam.roster.items.map((player) => (
+                        <li className="flex justify-between" key={player}>
+                          <p>{player.name}</p> <p>{player.number}</p>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-              )}
+                <div className="w-3/6 mx-auto mt-4 leading-relaxed">
+                  <div>
+                    <p className="text-center text-lg font-semibold">
+                      {event.HomeTeam.name}
+                    </p>
+                    <ul>
+                      {event.HomeTeam.roster.items.map((player) => (
+                        <li className="flex justify-between" key={player}>
+                          <p>{player.name}</p> <p>{player.number}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div></div>
+            )}
           </div>
         </div>
       );
