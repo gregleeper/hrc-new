@@ -52,7 +52,7 @@ export default function Home({ data }) {
 
 export async function getStaticProps(context) {
   const res = await API.graphql({ query: queries.listEvents });
-  console.log(res);
+
   return {
     props: { data: res },
     revalidate: 60 * 60,
