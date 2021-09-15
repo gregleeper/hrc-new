@@ -87,6 +87,11 @@ export const getEvent = /* GraphQL */ `
           updatedAt
         }
         roster {
+          items {
+            id
+            name
+            number
+          }
           nextToken
           startedAt
         }
@@ -111,6 +116,11 @@ export const getEvent = /* GraphQL */ `
           updatedAt
         }
         roster {
+          items {
+            id
+            name
+            number
+          }
           nextToken
           startedAt
         }
