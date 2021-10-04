@@ -100,23 +100,8 @@ export const getEvent = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
-          Teams {
-            nextToken
-            startedAt
-          }
         }
         roster {
-          items {
-            id
-            teamID
-            name
-            number
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
           nextToken
           startedAt
         }
@@ -139,23 +124,8 @@ export const getEvent = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
-          Teams {
-            nextToken
-            startedAt
-          }
         }
         roster {
-          items {
-            id
-            teamID
-            name
-            number
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
           nextToken
           startedAt
         }
@@ -163,36 +133,20 @@ export const getEvent = /* GraphQL */ `
       Sport {
         id
         name
+        about
+        summary
+        cost
+        imageURL
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
         Events {
-          items {
-            id
-            dateAndTime
-            sportID
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
           nextToken
           startedAt
         }
         Divisions {
-          items {
-            id
-            name
-            sportID
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
           nextToken
           startedAt
         }
@@ -207,16 +161,6 @@ export const getEvent = /* GraphQL */ `
         createdAt
         updatedAt
         Teams {
-          items {
-            id
-            name
-            divisionID
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
           nextToken
           startedAt
         }
@@ -258,20 +202,6 @@ export const listEvents = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
-          Division {
-            id
-            name
-            sportID
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
-          roster {
-            nextToken
-            startedAt
-          }
         }
         AwayTeam {
           id
@@ -282,37 +212,19 @@ export const listEvents = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
-          Division {
-            id
-            name
-            sportID
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
-          roster {
-            nextToken
-            startedAt
-          }
         }
         Sport {
           id
           name
+          about
+          summary
+          cost
+          imageURL
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
-          Events {
-            nextToken
-            startedAt
-          }
-          Divisions {
-            nextToken
-            startedAt
-          }
         }
         Division {
           id
@@ -323,10 +235,6 @@ export const listEvents = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
-          Teams {
-            nextToken
-            startedAt
-          }
         }
       }
       nextToken
@@ -374,20 +282,6 @@ export const syncEvents = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
-          Division {
-            id
-            name
-            sportID
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
-          roster {
-            nextToken
-            startedAt
-          }
         }
         AwayTeam {
           id
@@ -398,37 +292,19 @@ export const syncEvents = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
-          Division {
-            id
-            name
-            sportID
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
-          roster {
-            nextToken
-            startedAt
-          }
         }
         Sport {
           id
           name
+          about
+          summary
+          cost
+          imageURL
           _version
           _deleted
           _lastChangedAt
           createdAt
           updatedAt
-          Events {
-            nextToken
-            startedAt
-          }
-          Divisions {
-            nextToken
-            startedAt
-          }
         }
         Division {
           id
@@ -439,10 +315,6 @@ export const syncEvents = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
-          Teams {
-            nextToken
-            startedAt
-          }
         }
       }
       nextToken
@@ -471,16 +343,6 @@ export const getTeam = /* GraphQL */ `
         createdAt
         updatedAt
         Teams {
-          items {
-            id
-            name
-            divisionID
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
           nextToken
           startedAt
         }
@@ -528,23 +390,8 @@ export const listTeams = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
-          Teams {
-            nextToken
-            startedAt
-          }
         }
         roster {
-          items {
-            id
-            teamID
-            name
-            number
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
           nextToken
           startedAt
         }
@@ -585,23 +432,8 @@ export const syncTeams = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
-          Teams {
-            nextToken
-            startedAt
-          }
         }
         roster {
-          items {
-            id
-            teamID
-            name
-            number
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
           nextToken
           startedAt
         }
@@ -616,6 +448,10 @@ export const getSport = /* GraphQL */ `
     getSport(id: $id) {
       id
       name
+      about
+      summary
+      cost
+      imageURL
       _version
       _deleted
       _lastChangedAt
@@ -631,54 +467,6 @@ export const getSport = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
-          Location {
-            id
-            name
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
-          HomeTeam {
-            id
-            name
-            divisionID
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
-          AwayTeam {
-            id
-            name
-            divisionID
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
-          Sport {
-            id
-            name
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
-          Division {
-            id
-            name
-            sportID
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
         }
         nextToken
         startedAt
@@ -693,10 +481,6 @@ export const getSport = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
-          Teams {
-            nextToken
-            startedAt
-          }
         }
         nextToken
         startedAt
@@ -714,36 +498,20 @@ export const listSports = /* GraphQL */ `
       items {
         id
         name
+        about
+        summary
+        cost
+        imageURL
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
         Events {
-          items {
-            id
-            dateAndTime
-            sportID
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
           nextToken
           startedAt
         }
         Divisions {
-          items {
-            id
-            name
-            sportID
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
           nextToken
           startedAt
         }
@@ -769,36 +537,20 @@ export const syncSports = /* GraphQL */ `
       items {
         id
         name
+        about
+        summary
+        cost
+        imageURL
         _version
         _deleted
         _lastChangedAt
         createdAt
         updatedAt
         Events {
-          items {
-            id
-            dateAndTime
-            sportID
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
           nextToken
           startedAt
         }
         Divisions {
-          items {
-            id
-            name
-            sportID
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
           nextToken
           startedAt
         }
@@ -829,20 +581,6 @@ export const getDivision = /* GraphQL */ `
           _lastChangedAt
           createdAt
           updatedAt
-          Division {
-            id
-            name
-            sportID
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
-          roster {
-            nextToken
-            startedAt
-          }
         }
         nextToken
         startedAt
@@ -867,16 +605,6 @@ export const listDivisions = /* GraphQL */ `
         createdAt
         updatedAt
         Teams {
-          items {
-            id
-            name
-            divisionID
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
           nextToken
           startedAt
         }
@@ -909,16 +637,6 @@ export const syncDivisions = /* GraphQL */ `
         createdAt
         updatedAt
         Teams {
-          items {
-            id
-            name
-            divisionID
-            _version
-            _deleted
-            _lastChangedAt
-            createdAt
-            updatedAt
-          }
           nextToken
           startedAt
         }
@@ -984,6 +702,143 @@ export const syncPlayers = /* GraphQL */ `
         teamID
         name
         number
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getFacility = /* GraphQL */ `
+  query GetFacility($id: ID!) {
+    getFacility(id: $id) {
+      id
+      name
+      imageURL
+      address
+      about
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listFacilities = /* GraphQL */ `
+  query ListFacilities(
+    $filter: ModelFacilityFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listFacilities(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        imageURL
+        address
+        about
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncFacilities = /* GraphQL */ `
+  query SyncFacilities(
+    $filter: ModelFacilityFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncFacilities(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        name
+        imageURL
+        address
+        about
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getLeisure = /* GraphQL */ `
+  query GetLeisure($id: ID!) {
+    getLeisure(id: $id) {
+      id
+      activityName
+      about
+      cost
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listLeisures = /* GraphQL */ `
+  query ListLeisures(
+    $filter: ModelLeisureFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listLeisures(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        activityName
+        about
+        cost
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncLeisures = /* GraphQL */ `
+  query SyncLeisures(
+    $filter: ModelLeisureFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncLeisures(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        activityName
+        about
+        cost
         _version
         _deleted
         _lastChangedAt

@@ -28,6 +28,14 @@ type SportMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
+type FacilityMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+type LeisureMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 export declare class Location {
   readonly id: string;
   readonly name?: string;
@@ -89,10 +97,37 @@ export declare class Player {
 export declare class Sport {
   readonly id: string;
   readonly name: string;
+  readonly about?: string;
+  readonly summary?: string;
+  readonly cost?: (string | null)[];
   readonly Divisions?: (Division | null)[];
   readonly Events?: (Event | null)[];
+  readonly imageURL?: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Sport, SportMetaData>);
   static copyOf(source: Sport, mutator: (draft: MutableModel<Sport, SportMetaData>) => MutableModel<Sport, SportMetaData> | void): Sport;
+}
+
+export declare class Facility {
+  readonly id: string;
+  readonly name: string;
+  readonly imageURL?: string;
+  readonly address: string;
+  readonly about: string;
+  readonly createdAt?: string;
+  readonly updatedAt?: string;
+  constructor(init: ModelInit<Facility, FacilityMetaData>);
+  static copyOf(source: Facility, mutator: (draft: MutableModel<Facility, FacilityMetaData>) => MutableModel<Facility, FacilityMetaData> | void): Facility;
+}
+
+export declare class Leisure {
+  readonly id: string;
+  readonly activityName: string;
+  readonly about: string;
+  readonly cost: (string | null)[];
+  readonly createdAt?: string;
+  readonly updatedAt?: string;
+  constructor(init: ModelInit<Leisure, LeisureMetaData>);
+  static copyOf(source: Leisure, mutator: (draft: MutableModel<Leisure, LeisureMetaData>) => MutableModel<Leisure, LeisureMetaData> | void): Leisure;
 }

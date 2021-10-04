@@ -31,8 +31,12 @@ type Team
 type Sport @model @auth(rules: [{ allow: public }]) {
   id: ID!
   name: String!
+  about: String
+  summary: String
+  cost: [String]
   Divisions: [Division] @connection(keyName: "bySport", fields: ["id"])
   Events: [Event] @connection(keyName: "bySport", fields: ["id"])
+  imageURL: AWSURL
 }
 
 type Division
@@ -54,4 +58,18 @@ type Player
   name: String!
   number: Int!
 }
- 
+
+type Facility @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  name: String!
+  imageURL: String
+  address: String!
+  about: String!
+}
+
+type Leisure @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  activityName: String!
+  about: String!
+  cost: [String]!
+}
