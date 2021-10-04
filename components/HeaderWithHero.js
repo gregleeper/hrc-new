@@ -2,7 +2,11 @@ import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Fragment } from "react";
 import Link from "next/link";
-const navigation = [{ name: "Schedules", href: "/schedules" }];
+const navigation = [
+  { name: "Schedules", href: "/schedules" },
+  { name: "Facilities", href: "/facilities" },
+  { name: "Sports", href: "/sports" },
+];
 
 export default function Header() {
   return (
