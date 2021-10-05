@@ -50,7 +50,7 @@ export default function Event() {
     if (event && event.Sport) {
       return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-sans ">
-          <div className="max-w-lg">
+          <div className="max-w-lg my-8">
             <div>
               <PageHeading pageName={`${event.Sport.name}`} />
             </div>
