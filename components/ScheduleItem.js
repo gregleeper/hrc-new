@@ -6,7 +6,7 @@ import moment from "moment";
 import Link from "next/link";
 export default function ScheduleItem({ event }) {
   function ShowSportIcon() {
-    if (event.Sport.name === "Football") {
+    if (event.Sport.name.includes("Football")) {
       return (
         <FontAwesomeIcon
           icon={faFootballBall}
@@ -14,7 +14,7 @@ export default function ScheduleItem({ event }) {
         />
       );
     }
-    if (event.Sport.name === "Volleyball") {
+    if (event.Sport.name.includes("Volleyball")) {
       return (
         <FontAwesomeIcon
           className="text-pink-500 text-xl"
