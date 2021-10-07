@@ -36,6 +36,10 @@ type LeisureMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
 
+type SummerMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 export declare class Location {
   readonly id: string;
   readonly name?: string;
@@ -124,10 +128,24 @@ export declare class Facility {
 export declare class Leisure {
   readonly id: string;
   readonly activityName: string;
+  readonly imageURL?: string;
+  readonly summary: string;
   readonly about: string;
   readonly cost: (string | null)[];
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Leisure, LeisureMetaData>);
   static copyOf(source: Leisure, mutator: (draft: MutableModel<Leisure, LeisureMetaData>) => MutableModel<Leisure, LeisureMetaData> | void): Leisure;
+}
+
+export declare class Summer {
+  readonly id: string;
+  readonly name: string;
+  readonly imageURLs?: (string | null)[];
+  readonly summary: string;
+  readonly about: string;
+  readonly createdAt?: string;
+  readonly updatedAt?: string;
+  constructor(init: ModelInit<Summer, SummerMetaData>);
+  static copyOf(source: Summer, mutator: (draft: MutableModel<Summer, SummerMetaData>) => MutableModel<Summer, SummerMetaData> | void): Summer;
 }

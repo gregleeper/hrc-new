@@ -870,6 +870,8 @@ export const createLeisure = /* GraphQL */ `
     createLeisure(input: $input, condition: $condition) {
       id
       activityName
+      imageURL
+      summary
       about
       cost
       _version
@@ -888,6 +890,8 @@ export const updateLeisure = /* GraphQL */ `
     updateLeisure(input: $input, condition: $condition) {
       id
       activityName
+      imageURL
+      summary
       about
       cost
       _version
@@ -906,8 +910,67 @@ export const deleteLeisure = /* GraphQL */ `
     deleteLeisure(input: $input, condition: $condition) {
       id
       activityName
+      imageURL
+      summary
       about
       cost
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createSummer = /* GraphQL */ `
+  mutation CreateSummer(
+    $input: CreateSummerInput!
+    $condition: ModelSummerConditionInput
+  ) {
+    createSummer(input: $input, condition: $condition) {
+      id
+      name
+      imageURLs
+      summary
+      about
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateSummer = /* GraphQL */ `
+  mutation UpdateSummer(
+    $input: UpdateSummerInput!
+    $condition: ModelSummerConditionInput
+  ) {
+    updateSummer(input: $input, condition: $condition) {
+      id
+      name
+      imageURLs
+      summary
+      about
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteSummer = /* GraphQL */ `
+  mutation DeleteSummer(
+    $input: DeleteSummerInput!
+    $condition: ModelSummerConditionInput
+  ) {
+    deleteSummer(input: $input, condition: $condition) {
+      id
+      name
+      imageURLs
+      summary
+      about
       _version
       _deleted
       _lastChangedAt

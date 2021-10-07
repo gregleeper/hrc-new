@@ -804,6 +804,8 @@ export const onCreateLeisure = /* GraphQL */ `
     onCreateLeisure {
       id
       activityName
+      imageURL
+      summary
       about
       cost
       _version
@@ -819,6 +821,8 @@ export const onUpdateLeisure = /* GraphQL */ `
     onUpdateLeisure {
       id
       activityName
+      imageURL
+      summary
       about
       cost
       _version
@@ -834,8 +838,58 @@ export const onDeleteLeisure = /* GraphQL */ `
     onDeleteLeisure {
       id
       activityName
+      imageURL
+      summary
       about
       cost
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateSummer = /* GraphQL */ `
+  subscription OnCreateSummer {
+    onCreateSummer {
+      id
+      name
+      imageURLs
+      summary
+      about
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateSummer = /* GraphQL */ `
+  subscription OnUpdateSummer {
+    onUpdateSummer {
+      id
+      name
+      imageURLs
+      summary
+      about
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteSummer = /* GraphQL */ `
+  subscription OnDeleteSummer {
+    onDeleteSummer {
+      id
+      name
+      imageURLs
+      summary
+      about
       _version
       _deleted
       _lastChangedAt

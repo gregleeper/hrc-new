@@ -4,7 +4,6 @@ import * as queries from "../../src/graphql/queries";
 import Header from "../../components/Header";
 import FacilitiesList from "../../components/FacilitiesList";
 export default function Facilities({ facilities }) {
-  console.log(facilities);
   return (
     <>
       <Header />

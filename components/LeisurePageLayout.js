@@ -1,7 +1,12 @@
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 
-export default function SportPageLayout({ sportName, about, cost, imageURL }) {
+export default function LeisurePageLayout({
+  activityName,
+  about,
+  cost,
+  imageURL,
+}) {
   return (
     <>
       <div className="relative bg-white py-16 sm:py-24">
@@ -65,7 +70,7 @@ export default function SportPageLayout({ sportName, about, cost, imageURL }) {
             {/* Content area */}
             <div className="pt-12 sm:pt-16 lg:pt-20">
               <h2 className="text-3xl text-gray-900 font-extrabold tracking-tight sm:text-4xl">
-                {sportName}
+                {activityName}
               </h2>
               <div className="mt-6 text-gray-500 space-y-6">
                 {cost.map((i) => (

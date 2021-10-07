@@ -788,6 +788,8 @@ export const getLeisure = /* GraphQL */ `
     getLeisure(id: $id) {
       id
       activityName
+      imageURL
+      summary
       about
       cost
       _version
@@ -808,6 +810,8 @@ export const listLeisures = /* GraphQL */ `
       items {
         id
         activityName
+        imageURL
+        summary
         about
         cost
         _version
@@ -837,8 +841,80 @@ export const syncLeisures = /* GraphQL */ `
       items {
         id
         activityName
+        imageURL
+        summary
         about
         cost
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const getSummer = /* GraphQL */ `
+  query GetSummer($id: ID!) {
+    getSummer(id: $id) {
+      id
+      name
+      imageURLs
+      summary
+      about
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listSummers = /* GraphQL */ `
+  query ListSummers(
+    $filter: ModelSummerFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listSummers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        name
+        imageURLs
+        summary
+        about
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
+    }
+  }
+`;
+export const syncSummers = /* GraphQL */ `
+  query SyncSummers(
+    $filter: ModelSummerFilterInput
+    $limit: Int
+    $nextToken: String
+    $lastSync: AWSTimestamp
+  ) {
+    syncSummers(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
+      items {
+        id
+        name
+        imageURLs
+        summary
+        about
         _version
         _deleted
         _lastChangedAt

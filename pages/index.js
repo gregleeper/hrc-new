@@ -15,7 +15,7 @@ export default function Home({ data }) {
   );
 
   const sortedAndFiltered = sorted.filter(
-    (e) => moment(e.dateAndTime) >= moment(today)
+    (e) => moment(e.dateAndTime).add(8, "hours") >= moment(today)
   );
 
   const firstSix = sortedAndFiltered.slice(0, 8);

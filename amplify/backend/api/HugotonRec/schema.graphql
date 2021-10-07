@@ -70,6 +70,16 @@ type Facility @model @auth(rules: [{ allow: public }]) {
 type Leisure @model @auth(rules: [{ allow: public }]) {
   id: ID!
   activityName: String!
+  imageURL: AWSURL
+  summary: String!
   about: String!
   cost: [String]!
+}
+
+type Summer @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  name: String!
+  imageURLs: [AWSURL]
+  summary: String!
+  about: String!
 }

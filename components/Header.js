@@ -7,11 +7,12 @@ const navigation = [
   { name: "Schedules", href: "/schedules" },
   { name: "Facilities", href: "/facilities" },
   { name: "Sports", href: "/sports" },
+  { name: "Leisure", href: "/leisure" },
 ];
 
 export default function Header() {
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
       <svg
         className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
         fill="currentColor"
