@@ -10,6 +10,7 @@
     "es-lint": "eslint . --fix"
   },
   "dependencies": {
+    "@aws-amplify/api": "^4.0.11",
     "@cloudinary/react": "^1.0.0-beta.11",
     "@cloudinary/url-gen": "^1.1.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -49,7 +50,6 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "postcss": "^8.3.6",
     "prettier": "^2.4.1",
-    
     "typescript": "^4.4.4"
   }
 }
