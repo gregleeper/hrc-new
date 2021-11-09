@@ -1,4 +1,4 @@
-import API from '@aws-amplify/api';
+import { API } from 'aws-amplify';
 import { useRouter } from 'next/dist/client/router';
 import { useQuery } from 'react-query';
 import { useState, useEffect } from 'react';
